@@ -93,10 +93,10 @@ class Complex extends ComplexMath{
         $real = $str;
 
         if($real == '' || count(mb_split('[+-]{1}', $real))==2){
-            //print_r(array($real, $cmplI));
             $this->setReal($real);
             if($cmplI != '') $this->setComplex($cmplI);
-        }
+        } else
+            throw new \Exception('Wrong input string!');
     }
 
     // Get specific part of number by anchor (i), the rest what was left should be a correct real part
